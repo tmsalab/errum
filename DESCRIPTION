@@ -19,7 +19,8 @@ Description: Perform a bayesian estimation of the Exploratory Reduced
     Reparameterized Unified Model (errum) described by Culpepper and Chen (2018)
     <doi:10.3102/1076998618791306>
 Depends: R (>= 3.4.0)
-Imports: Rcpp (>= 1.0.0), RcppArmadillo (>= 0.9.200)
+Imports: Rcpp (>= 1.0.0)
+LinkingTo: Rcpp, RcppArmadillo (>= 0.9.200)
 License: GPL (>= 2)
 LazyData: true
 Suggests: 
