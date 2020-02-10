@@ -4,7 +4,30 @@
 \alias{errum}
 \title{Exploratory reduced Reparameterized Unified Model (ErRUM)}
 \usage{
-errum(data, k = 3, burnin = 10000, chain_length = 10000)
+errum(
+  data,
+  k = 3,
+  X = as.matrix(rep(1, ncol(data))),
+  v0 = 4,
+  v1 = 2,
+  cv0 = 0.1,
+  cv1 = 10,
+  bnu = 16,
+  burnin = 10000,
+  chain_length = 10000
+)
+}
+\arguments{
+\item{data}{Binary responses to assessements in \code{matrix}
+form with dimensions \eqn{N \times J}{N x J}.}
+
+\item{k}{Number of Attribute Levels as a positive \code{integer}.}
+
+\item{X, v0, v1, cv0, cv1, bnu}{Additional tuning parameters}
+
+\item{burnin}{Number of Observations to discard on the chain.}
+
+\item{chain_length}{Length of the MCMC chain}
 }
 \value{
 An \code{errum} object that has:
