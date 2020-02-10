@@ -16,8 +16,8 @@ Authors@R: c(
            role = c("aut"))
     )
 Description: Perform a bayesian estimation of the Exploratory Reduced
-    Reparameterized Unified Model (errum) described by Culpepper and Chen (2018)
-    <doi:10.3102/1076998618791306>
+    Reparameterized Unified Model ('ErRUM') described by Culpepper and Chen (2018)
+    <doi:10.3102/1076998618791306>.
 License: GPL (>= 2)
 Depends: R (>= 3.4.0)
 Imports: Rcpp (>= 1.0.0)
