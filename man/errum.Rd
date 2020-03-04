@@ -5,29 +5,29 @@
 \title{Exploratory reduced Reparameterized Unified Model (ErRUM)}
 \usage{
 errum(
-  data,
+  y,
   k = 3,
-  X = as.matrix(rep(1, ncol(data))),
+  burnin = 10000,
+  chain_length = 10000,
+  X = matrix(1, nrow = ncol(y)),
   v0 = 4,
   v1 = 2,
   cv0 = 0.1,
   cv1 = 10,
-  bnu = 16,
-  burnin = 10000,
-  chain_length = 10000
+  bnu = 16
 )
 }
 \arguments{
-\item{data}{Binary responses to assessements in \code{matrix}
+\item{y}{Binary responses to assessements in \code{matrix}
 form with dimensions \eqn{N \times J}{N x J}.}
 
 \item{k}{Number of Attribute Levels as a positive \code{integer}.}
 
-\item{X, v0, v1, cv0, cv1, bnu}{Additional tuning parameters}
-
 \item{burnin}{Number of Observations to discard on the chain.}
 
 \item{chain_length}{Length of the MCMC chain}
+
+\item{X, v0, v1, cv0, cv1, bnu}{Additional tuning parameters}
 }
 \value{
 An \code{errum} object that has:
@@ -48,44 +48,52 @@ Obtains samples from posterior distributon for the Exploratory
 reduced Reparametrized Unified Model (rRUM).
 }
 \examples{
-\dontrun{
 # Assign sim helpers
-N        = 3000
-K        = 3
-J        = 30
+N = 3000
+K = 3
+J = 30
 
 # Sample true attribute profiles
-Z         = matrix(rnorm(N*K), N, K)
+Z         = matrix(rnorm(N * K), N, K)
 Sig       = matrix(.5, K, K)
 diag(Sig) = 1
-theta     = Z\%*\%chol(Sig)
+theta     = Z \%*\% chol(Sig)
 
-thvals    = matrix(qnorm((1:K)/(K+1)),
-                   N, K, byrow=T)
+thvals    = matrix(qnorm((1:K) / (K + 1)),
+                   N, K, byrow = TRUE)
 
-Alphas    = 1*(theta > thvals)
+Alphas    = 1 * (theta > thvals)
 
 # Defining matrix of possible attribute profiles
 As = as.matrix(expand.grid(c(0, 1), c(0, 1), c(0, 1)))
-Q = rbind(As[rep(c(2, 3, 5),4),],
-          As[rep(c(4, 6, 7),4),],
+Q = rbind(As[rep(c(2, 3, 5), 4),],
+          As[rep(c(4, 6, 7), 4),],
           As[rep(8, 6),])
 
-a = As \%*\% bijectionvector(K)
-As = As[a+1,]
+# Use simulation functions available in simcdm
+if (requireNamespace("simcdm", quietly = TRUE)) {
+
+a = As \%*\% simcdm::attribute_bijection(K)
+As = As[a + 1,]
 
 # Setting item parameters
 pistar = rep(.9, J)
-rstar = matrix(.6, J, K)*Q
+rstar = matrix(.6, J, K) * Q
 
 # Simulate data under rRUM model
-Y = sim_rrum(Q, rstar, pistar, Alphas)
+Y = simcdm::sim_rrum_items(Q, rstar, pistar, Alphas)
 
 # Estimation Settings
 chainLength = 20000
-burnin = chainLength/2 + 1
+burnin = chainLength / 2 + 1
 
+\donttest{
 # Gibbs Estimation
 gibbs_estimation = errum(Y, K, burnin, chainLength)
 }
+}
+}
+\seealso{
+\code{\link[simcdm:attribute_bijection]{simcdm::attribute_bijection()}},
+\code{\link[simcdm:sim_rrum_items]{simcdm::sim_rrum_items()}}
 }
