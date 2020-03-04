@@ -71,7 +71,7 @@ uppertri_matrix_logical_gt <- function(J, A, B) {
     .Call(`_errum_uppertri_matrix_logical_gt`, J, A, B)
 }
 
-rRUM_mvnQ_Gibbs <- function(Y, K, X, v0, v1, cv0, cv1, bnu, burnin, chain_length = 10000L) {
+rRUM_mvnQ_Gibbs <- function(Y, K, X, v0, v1, cv0, cv1, bnu, burnin = 1000L, chain_length = 10000L) {
     .Call(`_errum_rRUM_mvnQ_Gibbs`, Y, K, X, v0, v1, cv0, cv1, bnu, burnin, chain_length)
 }
 
