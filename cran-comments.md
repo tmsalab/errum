@@ -14,3 +14,6 @@ Possibly mis-spelled words in DESCRIPTION:
   
 - This is a new release.
 - The reported misspelling is one of the paper's authors.
+- We've disabled the testing for the estimation routine within its example 
+  as even decreasing its sample size was not sufficient for bringing it
+  under 5 seconds. 
