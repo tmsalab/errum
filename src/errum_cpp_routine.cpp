@@ -559,7 +559,8 @@ Rcpp::List rRUM_mvnQ_Gibbs(const arma::mat& Y,unsigned int K,
              arma::mat logic_r = uppertri_matrix_logical_gt(J,OR_r,Observed_ORs);
              OR_PPPs=1./(tmburn+1.)*logic_r+tmburn/(tmburn+1.)*OR_PPPs;
              deviance(tmburn)=DEVIANCErRUM(N,J,K,nClass,Y,rstar,pistar,pis);
-             */}
+             */
+        }
     }
     return Rcpp::List::create(Rcpp::Named("PISTAR",PISTAR),
                               Rcpp::Named("RSTAR",RSTAR),
