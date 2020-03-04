@@ -9,6 +9,7 @@ errum(
   k = 3,
   burnin = 1000,
   chain_length = 10000,
+  verbose = FALSE,
   X = matrix(1, nrow = ncol(y)),
   v0 = 4,
   v1 = 2,
@@ -26,6 +27,8 @@ form with dimensions \eqn{N \times J}{N x J}.}
 \item{burnin}{Number of Observations to discard on the chain.}
 
 \item{chain_length}{Length of the MCMC chain}
+
+\item{verbose}{Display estimation progress updates.}
 
 \item{X, v0, v1, cv0, cv1, bnu}{Additional tuning parameters}
 }

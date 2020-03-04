@@ -224,8 +224,8 @@ BEGIN_RCPP
 END_RCPP
 }
 // rRUM_mvnQ_Gibbs
-Rcpp::List rRUM_mvnQ_Gibbs(const arma::mat& Y, unsigned int K, const arma::mat& X, double v0, double v1, double cv0, double cv1, double bnu, unsigned int burnin, unsigned int chain_length);
-RcppExport SEXP _errum_rRUM_mvnQ_Gibbs(SEXP YSEXP, SEXP KSEXP, SEXP XSEXP, SEXP v0SEXP, SEXP v1SEXP, SEXP cv0SEXP, SEXP cv1SEXP, SEXP bnuSEXP, SEXP burninSEXP, SEXP chain_lengthSEXP) {
+Rcpp::List rRUM_mvnQ_Gibbs(const arma::mat& Y, unsigned int K, const arma::mat& X, double v0, double v1, double cv0, double cv1, double bnu, unsigned int burnin, unsigned int chain_length, bool verbose);
+RcppExport SEXP _errum_rRUM_mvnQ_Gibbs(SEXP YSEXP, SEXP KSEXP, SEXP XSEXP, SEXP v0SEXP, SEXP v1SEXP, SEXP cv0SEXP, SEXP cv1SEXP, SEXP bnuSEXP, SEXP burninSEXP, SEXP chain_lengthSEXP, SEXP verboseSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -239,7 +239,8 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< double >::type bnu(bnuSEXP);
     Rcpp::traits::input_parameter< unsigned int >::type burnin(burninSEXP);
     Rcpp::traits::input_parameter< unsigned int >::type chain_length(chain_lengthSEXP);
-    rcpp_result_gen = Rcpp::wrap(rRUM_mvnQ_Gibbs(Y, K, X, v0, v1, cv0, cv1, bnu, burnin, chain_length));
+    Rcpp::traits::input_parameter< bool >::type verbose(verboseSEXP);
+    rcpp_result_gen = Rcpp::wrap(rRUM_mvnQ_Gibbs(Y, K, X, v0, v1, cv0, cv1, bnu, burnin, chain_length, verbose));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -259,7 +260,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_errum_update_Gamma_Delta_MVN", (DL_FUNC) &_errum_update_Gamma_Delta_MVN, 12},
     {"_errum_OddsRatio", (DL_FUNC) &_errum_OddsRatio, 3},
     {"_errum_uppertri_matrix_logical_gt", (DL_FUNC) &_errum_uppertri_matrix_logical_gt, 3},
-    {"_errum_rRUM_mvnQ_Gibbs", (DL_FUNC) &_errum_rRUM_mvnQ_Gibbs, 10},
+    {"_errum_rRUM_mvnQ_Gibbs", (DL_FUNC) &_errum_rRUM_mvnQ_Gibbs, 11},
     {NULL, NULL, 0}
 };
 

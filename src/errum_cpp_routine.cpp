@@ -467,7 +467,8 @@ Rcpp::List rRUM_mvnQ_Gibbs(const arma::mat& Y,unsigned int K,
                            const arma::mat& X,double v0,double v1,double cv0,double cv1,
                            double bnu,
                            unsigned int burnin=1000,
-                           unsigned int chain_length=10000){
+                           unsigned int chain_length=10000,
+                           bool verbose = false){
 
     // Parameter initialization
     unsigned int N = Y.n_rows;
@@ -539,7 +540,7 @@ Rcpp::List rRUM_mvnQ_Gibbs(const arma::mat& Y,unsigned int K,
 
         arma::mat MU = X*Gamma;
 
-        //Update Gamma & deltas
+        // Update Gamma & deltas
         Rcpp::List step_MVN = update_Gamma_Delta_MVN(N,V,K,J,Qstar,Gamma,deltas,X,diagXpX,w2,nu,bnu);
         w2 = Rcpp::as< double >(step_MVN[0]);
         nu = Rcpp::as< double >(step_MVN[1]);
@@ -561,6 +562,12 @@ Rcpp::List rRUM_mvnQ_Gibbs(const arma::mat& Y,unsigned int K,
              deviance(tmburn)=DEVIANCErRUM(N,J,K,nClass,Y,rstar,pistar,pis);
              */
         }
+
+        if(verbose && t % 100 == 0) {
+            Rcpp::Rcerr << "On iteration " <<
+                t << " out of " << chain_p_burn << "." << std::endl;
+        }
+
     }
     return Rcpp::List::create(Rcpp::Named("PISTAR",PISTAR),
                               Rcpp::Named("RSTAR",RSTAR),

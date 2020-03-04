@@ -8,6 +8,7 @@
 #' @param k            Number of Attribute Levels as a positive `integer`.
 #' @param burnin       Number of Observations to discard on the chain.
 #' @param chain_length Length of the MCMC chain
+#' @param verbose      Display estimation progress updates.
 #' @param X,v0,v1,cv0,cv1,bnu Additional tuning parameters
 #'
 #' @return
@@ -75,14 +76,16 @@
 #' }
 errum = function(y, k = 3,
                  burnin = 1000, chain_length = 10000,
+                 verbose = FALSE,
                  X = matrix(1, nrow = ncol(y)),
                  v0 = 4, v1 = 2,
                  cv0 = .1, cv1 = 10,
                  bnu = 16) {
 
+    message("Beginning the estimation procedure... ")
     o = rRUM_mvnQ_Gibbs(y, k,
                         X, v0, v1, cv0, cv1, bnu,
-                        burnin, chain_length)
+                        burnin, chain_length, verbose)
 
     class(o) = c("errum")
     o
