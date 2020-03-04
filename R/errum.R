@@ -65,8 +65,8 @@
 #' Y = simcdm::sim_rrum_items(Q, rstar, pistar, Alphas)
 #'
 #' # Estimation Settings
-#' chainLength = 20000
-#' burnin = chainLength / 2 + 1
+#' chainLength = 10000  # Run with 20000
+#' burnin = chainLength / 2
 #'
 #' \donttest{
 #' # Gibbs Estimation
