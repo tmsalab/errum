@@ -3,12 +3,12 @@
 #' Obtains samples from posterior distributon for the Exploratory
 #' reduced Reparametrized Unified Model (rRUM).
 #'
-#' @param data         Binary responses to assessements in `matrix`
+#' @param y            Binary responses to assessements in `matrix`
 #'                     form with dimensions \eqn{N \times J}{N x J}.
 #' @param k            Number of Attribute Levels as a positive `integer`.
-#' @param X,v0,v1,cv0,cv1,bnu Additional tuning parameters
 #' @param burnin       Number of Observations to discard on the chain.
 #' @param chain_length Length of the MCMC chain
+#' @param X,v0,v1,cv0,cv1,bnu Additional tuning parameters
 #'
 #' @export
 #' @return An `errum` object that has:
@@ -62,14 +62,13 @@
 #' # Gibbs Estimation
 #' gibbs_estimation = errum(Y, K, burnin, chainLength)
 #' }
-errum = function(data, k = 3,
-                 X = as.matrix(rep(1, ncol(data))),
-                 v0 = 4,
-                 v1 = 2,
-                 cv0 = .1,
-                 cv1 = 10,
-                 bnu = 16,
-                 burnin = 10000, chain_length = 10000) {
+#' }
+errum = function(y, k = 3,
+                 burnin = 10000, chain_length = 10000,
+                 X = matrix(1, nrow = ncol(y)),
+                 v0 = 4, v1 = 2,
+                 cv0 = .1, cv1 = 10,
+                 bnu = 16) {
 
     o = rRUM_mvnQ_Gibbs(data, k,
                         X, v0, v1, cv0, cv1, bnu,
