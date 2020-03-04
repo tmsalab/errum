@@ -1,6 +1,6 @@
 Package: errum
 Title: Bayesian Estimation of an Exploratory Reduced Reparameterized Unified Model
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: c(
     person("James Joseph", "Balamuta", 
            email = "balamut2@illinois.edu", 
