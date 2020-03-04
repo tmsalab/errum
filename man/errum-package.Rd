@@ -6,8 +6,8 @@
 \alias{_PACKAGE}
 \title{errum: Bayesian Estimation of an Exploratory Reduced Reparameterized Unified Model}
 \description{
-Perform a bayesian estimation of the Exploratory Reduced
-    Reparameterized Unified Model ('ErRUM') described by Culpepper and Chen (2018)
+Perform a Bayesian estimation of the exploratory reduced
+    reparameterized unified model ('ErRUM') described by Culpepper and Chen (2018)
     <doi:10.3102/1076998618791306>.
 }
 \author{

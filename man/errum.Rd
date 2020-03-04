@@ -19,7 +19,7 @@ errum(
 )
 }
 \arguments{
-\item{y}{Binary responses to assessements in \code{matrix}
+\item{y}{Binary responses to assessments in \code{matrix}
 form with dimensions \eqn{N \times J}{N x J}.}
 
 \item{k}{Number of Attribute Levels as a positive \code{integer}.}
@@ -47,7 +47,7 @@ An \code{errum} object that has:
 }
 }
 \description{
-Obtains samples from posterior distributon for the Exploratory
+Obtains samples from posterior distribution for the Exploratory
 reduced Reparametrized Unified Model (rRUM).
 }
 \examples{
@@ -92,7 +92,7 @@ burnin = chainLength / 2
 
 \donttest{
 # Gibbs Estimation
-gibbs_estimation = errum(Y, K, burnin, chainLength)
+model = errum(Y, K, burnin, chainLength)
 }
 }
 }

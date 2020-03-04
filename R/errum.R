@@ -1,9 +1,9 @@
 #' Exploratory reduced Reparameterized Unified Model (ErRUM)
 #'
-#' Obtains samples from posterior distributon for the Exploratory
+#' Obtains samples from posterior distribution for the Exploratory
 #' reduced Reparametrized Unified Model (rRUM).
 #'
-#' @param y            Binary responses to assessements in `matrix`
+#' @param y            Binary responses to assessments in `matrix`
 #'                     form with dimensions \eqn{N \times J}{N x J}.
 #' @param k            Number of Attribute Levels as a positive `integer`.
 #' @param burnin       Number of Observations to discard on the chain.
@@ -71,7 +71,7 @@
 #'
 #' \donttest{
 #' # Gibbs Estimation
-#' gibbs_estimation = errum(Y, K, burnin, chainLength)
+#' model = errum(Y, K, burnin, chainLength)
 #' }
 #' }
 errum = function(y, k = 3,
