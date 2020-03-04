@@ -471,7 +471,9 @@ Rcpp::List rRUM_mvnQ_Gibbs(const arma::mat& Y,unsigned int K,
     unsigned int N = Y.n_rows;
     unsigned int J = Y.n_cols;
     unsigned int nClass = pow(2,K);
-    unsigned int chain_m_burn = chain_length-burnin;
+
+    // Chain
+    unsigned int chain_p_burn = chain_length + burnin;
     unsigned int tmburn;
     arma::vec vv = bijectionvector(K);
     arma::mat Observed_ORs = OddsRatio(N,J,Y);
@@ -489,19 +491,19 @@ Rcpp::List rRUM_mvnQ_Gibbs(const arma::mat& Y,unsigned int K,
     arma::vec oneK=arma::ones<arma::vec>(K);
     double w2(1.),nu(1.);
 
-    //Saving output
-    arma::vec deviance(chain_m_burn);
-    arma::mat PISTAR(J,chain_m_burn);
-    arma::cube RSTAR(J,K,chain_m_burn);
-    arma::mat PIs(nClass,chain_m_burn);
-    //arma::vec cv1s(chain_m_burn);
-    //arma::vec v1s(chain_m_burn);
-    //arma::vec v0s(chain_m_burn);
-    arma::cube QS(J,K,chain_m_burn);
-    arma::cube GAMMAS_OUT(V,K,chain_m_burn);
+    // Save output
+    arma::vec deviance(chain_length);
+    arma::mat PISTAR(J,chain_length);
+    arma::cube RSTAR(J,K,chain_length);
+    arma::mat PIs(nClass,chain_length);
+    //arma::vec cv1s(chain_length);
+    //arma::vec v1s(chain_length);
+    //arma::vec v0s(chain_length);
+    arma::cube QS(J,K,chain_length);
+    arma::cube GAMMAS_OUT(V,K,chain_length);
     arma::mat Delta_tab=arma::zeros<arma::mat>(V,K);
-    arma::cube B0s(J,K,chain_m_burn);
-    arma::cube B1s(J,K,chain_m_burn);
+    arma::cube B0s(J,K,chain_length);
+    arma::cube B1s(J,K,chain_length);
     arma::mat OR_PPPs=arma::zeros<arma::mat>(J,J);
 
     //need to initialize parameters
@@ -520,7 +522,7 @@ Rcpp::List rRUM_mvnQ_Gibbs(const arma::mat& Y,unsigned int K,
     arma::mat X_biject=arma::ones<arma::mat>(N,J);
 
     //Start Markov chain
-    for(unsigned int t = 0; t < chain_length; t++){
+    for(unsigned int t = 0; t < chain_p_burn; ++t){
         parm_update_nomiss(N,J,K,nClass,Y,X_biject,B0,B1,CLASS,pis,Q,MU,vv,CLtable,v0,v1,d0,pistar,rstar,a0,b0,a1,b1,Qstar,cv1,cv0);
         //Rcpp::List step_1 =parm_update_nomiss(N,J,K,nClass,Y,X_biject,B0,B1,CLASS,pis,Q,MU,vv,CLtable,v0,v1,d0,pistar,rstar,a0,b0,a1,b1,Qstar,cv1);
         //v0 = Rcpp::as< double >(step_1[0]);
