@@ -465,7 +465,8 @@ arma::mat uppertri_matrix_logical_gt(unsigned int J,const arma::mat& A,
 // [[Rcpp::export]]
 Rcpp::List rRUM_mvnQ_Gibbs(const arma::mat& Y,unsigned int K,
                            const arma::mat& X,double v0,double v1,double cv0,double cv1,
-                           double bnu,unsigned int burnin,
+                           double bnu,
+                           unsigned int burnin=1000,
                            unsigned int chain_length=10000){
     unsigned int N = Y.n_rows;
     unsigned int J = Y.n_cols;
