@@ -74,7 +74,7 @@
 #' }
 #' }
 errum = function(y, k = 3,
-                 burnin = 10000, chain_length = 10000,
+                 burnin = 1000, chain_length = 10000,
                  X = matrix(1, nrow = ncol(y)),
                  v0 = 4, v1 = 2,
                  cv0 = .1, cv1 = 10,
