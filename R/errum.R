@@ -10,8 +10,9 @@
 #' @param chain_length Length of the MCMC chain
 #' @param X,v0,v1,cv0,cv1,bnu Additional tuning parameters
 #'
-#' @export
-#' @return An `errum` object that has:
+#' @return
+#'
+#' An `errum` object that has:
 #' - `PISTAR`
 #' - `RSTAR`
 #' - `PIs`
@@ -21,6 +22,12 @@
 #' - `M2`
 #' - `M1`
 #' - `NUS`
+#'
+#' @seealso
+#' [simcdm::attribute_bijection()],
+#' [simcdm::sim_rrum_items()]
+#'
+#' @export
 #' @examples
 #' \dontrun{
 #' # Assign sim helpers
