@@ -465,20 +465,32 @@ arma::mat uppertri_matrix_logical_gt(unsigned int J,const arma::mat& A,
 // [[Rcpp::export]]
 Rcpp::List rRUM_mvnQ_Gibbs(const arma::mat& Y,unsigned int K,
                            const arma::mat& X,double v0,double v1,double cv0,double cv1,
-                           double bnu,unsigned int burnin,
-                           unsigned int chain_length=10000){
+                           double bnu,
+                           unsigned int burnin=1000,
+                           unsigned int chain_length=10000,
+                           bool verbose = false){
+
+    // Parameter initialization
     unsigned int N = Y.n_rows;
     unsigned int J = Y.n_cols;
     unsigned int nClass = pow(2,K);
-    unsigned int chain_m_burn = chain_length-burnin;
+
+    // Chain
+    unsigned int chain_p_burn = chain_length + burnin;
     unsigned int tmburn;
+
+    // Bijection
     arma::vec vv = bijectionvector(K);
+
+    // Odds Ratio
     arma::mat Observed_ORs = OddsRatio(N,J,Y);
 
+    // X Matrix operations
     arma::mat XpX = X.t() * X;
     arma::vec diagXpX = XpX.diag();
     unsigned int V = XpX.n_cols;
 
+    // Q matrix construction
     arma::mat Q = arma::randi<arma::mat>(J,K,arma::distr_param(0,1));//random_Q(J,K);
     arma::mat CLtable = CL_invbijection_table(K,nClass);
 
@@ -488,19 +500,19 @@ Rcpp::List rRUM_mvnQ_Gibbs(const arma::mat& Y,unsigned int K,
     arma::vec oneK=arma::ones<arma::vec>(K);
     double w2(1.),nu(1.);
 
-    //Saving output
-    arma::vec deviance(chain_m_burn);
-    arma::mat PISTAR(J,chain_m_burn);
-    arma::cube RSTAR(J,K,chain_m_burn);
-    arma::mat PIs(nClass,chain_m_burn);
-    //arma::vec cv1s(chain_m_burn);
-    //arma::vec v1s(chain_m_burn);
-    //arma::vec v0s(chain_m_burn);
-    arma::cube QS(J,K,chain_m_burn);
-    arma::cube GAMMAS_OUT(V,K,chain_m_burn);
+    // Save output
+    arma::vec deviance(chain_length);
+    arma::mat PISTAR(J,chain_length);
+    arma::cube RSTAR(J,K,chain_length);
+    arma::mat PIs(nClass,chain_length);
+    //arma::vec cv1s(chain_length);
+    //arma::vec v1s(chain_length);
+    //arma::vec v0s(chain_length);
+    arma::cube QS(J,K,chain_length);
+    arma::cube GAMMAS_OUT(V,K,chain_length);
     arma::mat Delta_tab=arma::zeros<arma::mat>(V,K);
-    arma::cube B0s(J,K,chain_m_burn);
-    arma::cube B1s(J,K,chain_m_burn);
+    arma::cube B0s(J,K,chain_length);
+    arma::cube B1s(J,K,chain_length);
     arma::mat OR_PPPs=arma::zeros<arma::mat>(J,J);
 
     //need to initialize parameters
@@ -519,7 +531,7 @@ Rcpp::List rRUM_mvnQ_Gibbs(const arma::mat& Y,unsigned int K,
     arma::mat X_biject=arma::ones<arma::mat>(N,J);
 
     //Start Markov chain
-    for(unsigned int t = 0; t < chain_length; t++){
+    for(unsigned int t = 0; t < chain_p_burn; ++t){
         parm_update_nomiss(N,J,K,nClass,Y,X_biject,B0,B1,CLASS,pis,Q,MU,vv,CLtable,v0,v1,d0,pistar,rstar,a0,b0,a1,b1,Qstar,cv1,cv0);
         //Rcpp::List step_1 =parm_update_nomiss(N,J,K,nClass,Y,X_biject,B0,B1,CLASS,pis,Q,MU,vv,CLtable,v0,v1,d0,pistar,rstar,a0,b0,a1,b1,Qstar,cv1);
         //v0 = Rcpp::as< double >(step_1[0]);
@@ -528,13 +540,13 @@ Rcpp::List rRUM_mvnQ_Gibbs(const arma::mat& Y,unsigned int K,
 
         arma::mat MU = X*Gamma;
 
-        //Update Gamma & deltas
+        // Update Gamma & deltas
         Rcpp::List step_MVN = update_Gamma_Delta_MVN(N,V,K,J,Qstar,Gamma,deltas,X,diagXpX,w2,nu,bnu);
         w2 = Rcpp::as< double >(step_MVN[0]);
         nu = Rcpp::as< double >(step_MVN[1]);
 
-        if(t>burnin-1){
-            tmburn = t-burnin;
+        if(t > burnin - 1){
+            tmburn = t - burnin;
             PISTAR.col(tmburn)  = pistar;
             RSTAR.slice(tmburn) = rstar;
             PIs.col(tmburn)      = pis;
@@ -548,7 +560,14 @@ Rcpp::List rRUM_mvnQ_Gibbs(const arma::mat& Y,unsigned int K,
              arma::mat logic_r = uppertri_matrix_logical_gt(J,OR_r,Observed_ORs);
              OR_PPPs=1./(tmburn+1.)*logic_r+tmburn/(tmburn+1.)*OR_PPPs;
              deviance(tmburn)=DEVIANCErRUM(N,J,K,nClass,Y,rstar,pistar,pis);
-             */}
+             */
+        }
+
+        if(verbose && t % 100 == 0) {
+            Rcpp::Rcerr << "On iteration " <<
+                t << " out of " << chain_p_burn << "." << std::endl;
+        }
+
     }
     return Rcpp::List::create(Rcpp::Named("PISTAR",PISTAR),
                               Rcpp::Named("RSTAR",RSTAR),
