@@ -10,9 +10,8 @@ Status](https://travis-ci.org/tmsalab/errum.svg)](https://travis-ci.org/tmsalab/
 [![Package-License](http://img.shields.io/badge/license-GPL%20\(%3E=2\)-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html)
 <!-- badges: end -->
 
-Perform a bayesian estimation of the Exploratory reduced Reparameterized
-Unified Model (‘ErRUM’) described by Culpepper and Chen (2018)
-<doi:10.3102/1076998618791306>.
+Perform a Bayesian estimation of the Exploratory reduced Reparameterized
+Unified Model (‘ErRUM’) described by Culpepper and Chen (2018).
 
 ### Installation
 
@@ -42,17 +41,6 @@ From there, the errum model can be estimated using:
 ``` r
 errum_model = errum(<data>, chain_length = 10000)
 ```
-
-<!--
-To compute a model underneath different _K_ attribute configured _Q_ matrices, use:
-
-
-```r
-errum_models = auto_errum(<data>, k = 2:4, chain_length = 10000)
-```
-
-**Note:** Higher _K_ configured _Q_ matrices take longer to estimate. 
--->
 
 ### Authors
 

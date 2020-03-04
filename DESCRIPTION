@@ -15,8 +15,8 @@ Authors@R: c(
            email = "jeffdoug@illinois.edu", 
            role = c("aut"))
     )
-Description: Perform a bayesian estimation of the Exploratory Reduced
-    Reparameterized Unified Model ('ErRUM') described by Culpepper and Chen (2018)
+Description: Perform a Bayesian estimation of the exploratory reduced
+    reparameterized unified model ('ErRUM') described by Culpepper and Chen (2018)
     <doi:10.3102/1076998618791306>.
 License: GPL (>= 2)
 Depends: R (>= 3.5.0)
@@ -28,3 +28,4 @@ LazyData: true
 RoxygenNote: 7.0.2
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
+Language: en-US
