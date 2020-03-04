@@ -468,6 +468,8 @@ Rcpp::List rRUM_mvnQ_Gibbs(const arma::mat& Y,unsigned int K,
                            double bnu,
                            unsigned int burnin=1000,
                            unsigned int chain_length=10000){
+
+    // Parameter initialization
     unsigned int N = Y.n_rows;
     unsigned int J = Y.n_cols;
     unsigned int nClass = pow(2,K);
@@ -475,13 +477,19 @@ Rcpp::List rRUM_mvnQ_Gibbs(const arma::mat& Y,unsigned int K,
     // Chain
     unsigned int chain_p_burn = chain_length + burnin;
     unsigned int tmburn;
+
+    // Bijection
     arma::vec vv = bijectionvector(K);
+
+    // Odds Ratio
     arma::mat Observed_ORs = OddsRatio(N,J,Y);
 
+    // X Matrix operations
     arma::mat XpX = X.t() * X;
     arma::vec diagXpX = XpX.diag();
     unsigned int V = XpX.n_cols;
 
+    // Q matrix construction
     arma::mat Q = arma::randi<arma::mat>(J,K,arma::distr_param(0,1));//random_Q(J,K);
     arma::mat CLtable = CL_invbijection_table(K,nClass);
 
@@ -536,8 +544,8 @@ Rcpp::List rRUM_mvnQ_Gibbs(const arma::mat& Y,unsigned int K,
         w2 = Rcpp::as< double >(step_MVN[0]);
         nu = Rcpp::as< double >(step_MVN[1]);
 
-        if(t>burnin-1){
-            tmburn = t-burnin;
+        if(t > burnin - 1){
+            tmburn = t - burnin;
             PISTAR.col(tmburn)  = pistar;
             RSTAR.slice(tmburn) = rstar;
             PIs.col(tmburn)      = pis;
