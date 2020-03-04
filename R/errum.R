@@ -1,7 +1,7 @@
 #' Exploratory reduced Reparameterized Unified Model (ErRUM)
 #'
 #' Obtains samples from posterior distribution for the Exploratory
-#' reduced Reparametrized Unified Model (rRUM).
+#' reduced Reparameterized Unified Model (ErRUM).
 #'
 #' @param y            Binary responses to assessments in `matrix`
 #'                     form with dimensions \eqn{N \times J}{N x J}.

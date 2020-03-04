@@ -48,7 +48,7 @@ An \code{errum} object that has:
 }
 \description{
 Obtains samples from posterior distribution for the Exploratory
-reduced Reparametrized Unified Model (rRUM).
+reduced Reparameterized Unified Model (ErRUM).
 }
 \examples{
 # Assign sim helpers
