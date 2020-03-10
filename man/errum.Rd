@@ -52,7 +52,7 @@ reduced Reparameterized Unified Model (ErRUM).
 }
 \examples{
 # Assign sim helpers
-N = 3000
+N = 5  # Increase to 3000
 K = 3
 J = 30
 
@@ -90,10 +90,8 @@ Y = simcdm::sim_rrum_items(Q, rstar, pistar, Alphas)
 chainLength = 10000  # Run with 20000
 burnin = chainLength / 2
 
-\donttest{
 # Gibbs Estimation
 model = errum(Y, K, burnin, chainLength)
-}
 }
 }
 \seealso{

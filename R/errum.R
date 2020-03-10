@@ -31,7 +31,7 @@
 #' @export
 #' @examples
 #' # Assign sim helpers
-#' N = 3000
+#' N = 5  # Increase to 3000
 #' K = 3
 #' J = 30
 #'
@@ -69,10 +69,8 @@
 #' chainLength = 10000  # Run with 20000
 #' burnin = chainLength / 2
 #'
-#' \donttest{
 #' # Gibbs Estimation
 #' model = errum(Y, K, burnin, chainLength)
-#' }
 #' }
 errum = function(y, k = 3,
                  burnin = 1000, chain_length = 10000,
