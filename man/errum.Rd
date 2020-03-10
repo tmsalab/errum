@@ -51,10 +51,14 @@ Obtains samples from posterior distribution for the Exploratory
 reduced Reparameterized Unified Model (ErRUM).
 }
 \examples{
-# Assign sim helpers
-N = 5  # Increase to 3000
+# Setup Simulation Parameters
+N = 5
 K = 3
 J = 30
+# Note:
+# Sample size has been reduced to create a minimally
+# viable example that can be run during CRAN's automatic check.
+# Please make sure to have a larger sample size of around 3,000.
 
 # Sample true attribute profiles
 Z         = matrix(rnorm(N * K), N, K)
