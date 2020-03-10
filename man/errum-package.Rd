@@ -4,7 +4,7 @@
 \name{errum-package}
 \alias{errum-package}
 \alias{_PACKAGE}
-\title{errum: Bayesian Estimation of an Exploratory Reduced Reparameterized Unified Model}
+\title{errum: Exploratory Reduced Reparameterized Unified Model Estimation}
 \description{
 Perform a Bayesian estimation of the exploratory reduced
     reparameterized unified model ('ErRUM') described by Culpepper and Chen (2018)
