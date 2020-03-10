@@ -1,5 +1,5 @@
 Package: errum
-Title: Bayesian Estimation of an Exploratory Reduced Reparameterized Unified Model
+Title: Exploratory Reduced Reparameterized Unified Model Estimation
 Version: 0.0.2
 Authors@R: c(
     person("James Joseph", "Balamuta", 
@@ -16,7 +16,7 @@ Authors@R: c(
            role = c("aut"))
     )
 Description: Perform a Bayesian estimation of the exploratory reduced
-    reparameterized unified model ('ErRUM') described by Culpepper and Chen (2018)
+    reparameterized unified model (ErRUM) described by Culpepper and Chen (2018)
     <doi:10.3102/1076998618791306>.
 License: GPL (>= 2)
 Depends: R (>= 3.5.0)
