@@ -1,6 +1,5 @@
 #' @aliases errum-package
 #' @keywords internal
-#' @seealso [errum()]
 "_PACKAGE"
 
 # The following block is used by usethis to automatically manage
