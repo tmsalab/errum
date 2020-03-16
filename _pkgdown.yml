@@ -1,0 +1,31 @@
+url: https://tmsalab.github.io
+
+authors:
+  "James Balamuta":
+    href: http://thecoatlessprofessor.com
+
+development:
+  mode: auto
+
+navbar:
+  type: default
+  left:
+  - text: Home
+    href: index.html
+  - text: Reference
+    href: reference/index.html
+  - text: News
+    menu:
+    - text: "Change log"
+      href: news/index.html
+
+reference:
+- title: Estimation
+  desc: >
+    Perform a Bayesian estimation of the exploratory reduced reparameterized unified model (ErRUM) described by Culpepper and Chen (2018) <doi:10.3102/1076998618791306>
+  contents:
+  - errum
+
+template:
+  params:
+    ganalytics: UA-151562227-1
