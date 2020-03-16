@@ -30,13 +30,19 @@ arma::mat CL_invbijection_table(unsigned int K,unsigned int nClass){
     return CLtable;
 }
 
-//' @title Generate Multinomial Random Variable
-//' @description Sample a multinomial random variable for given probabilities.
-//' @usage rmultinomial(ps)
-//' @param ps A \code{vector} for the probability of each category.
-//' @return A \code{vector} from a multinomial with probability ps.
-//' @author Steven Andrew Culpepper
+//' Generate Multinomial Random Variable
 //'
+//' Sample a multinomial random variable for given probabilities.
+//'
+//' @param ps A \code{vector} for the probability of each category.
+//'
+//' @return
+//' A \code{vector} from a multinomial with probability ps.
+//'
+//' @author
+//' Steven Andrew Culpepper
+//'
+//' @noRd
 // [[Rcpp::export]]
 double rmultinomial(const arma::vec& ps){
     unsigned int C = ps.n_elem;
@@ -48,13 +54,19 @@ double rmultinomial(const arma::vec& ps){
     return sum(Ips);
 }
 
-//' @title Generate Dirichlet Random Variable
-//' @description Sample a Dirichlet random variable.
-//' @usage rDirichlet(deltas)
-//' @param deltas A \code{vector} of Dirichlet parameters.
-//' @return A \code{vector} from a Dirichlet.
-//' @author Steven Andrew Culpepper
+//' Generate Dirichlet Random Variable
 //'
+//' Sample a Dirichlet random variable.
+//'
+//' @param deltas A \code{vector} of Dirichlet parameters.
+//'
+//' @return
+//' A \code{vector} from a Dirichlet.
+//'
+//' @author
+//' Steven Andrew Culpepper
+//'
+//' @noRd
 // [[Rcpp::export]]
 arma::vec rDirichlet(const arma::vec& deltas){
     unsigned int C = deltas.n_elem;

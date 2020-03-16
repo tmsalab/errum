@@ -13,24 +13,36 @@ CL_invbijection_table <- function(K, nClass) {
     .Call(`_errum_CL_invbijection_table`, K, nClass)
 }
 
-#' @title Generate Multinomial Random Variable
-#' @description Sample a multinomial random variable for given probabilities.
-#' @usage rmultinomial(ps)
-#' @param ps A \code{vector} for the probability of each category.
-#' @return A \code{vector} from a multinomial with probability ps.
-#' @author Steven Andrew Culpepper
+#' Generate Multinomial Random Variable
 #'
+#' Sample a multinomial random variable for given probabilities.
+#'
+#' @param ps A \code{vector} for the probability of each category.
+#'
+#' @return
+#' A \code{vector} from a multinomial with probability ps.
+#'
+#' @author
+#' Steven Andrew Culpepper
+#'
+#' @noRd
 rmultinomial <- function(ps) {
     .Call(`_errum_rmultinomial`, ps)
 }
 
-#' @title Generate Dirichlet Random Variable
-#' @description Sample a Dirichlet random variable.
-#' @usage rDirichlet(deltas)
-#' @param deltas A \code{vector} of Dirichlet parameters.
-#' @return A \code{vector} from a Dirichlet.
-#' @author Steven Andrew Culpepper
+#' Generate Dirichlet Random Variable
 #'
+#' Sample a Dirichlet random variable.
+#'
+#' @param deltas A \code{vector} of Dirichlet parameters.
+#'
+#' @return
+#' A \code{vector} from a Dirichlet.
+#'
+#' @author
+#' Steven Andrew Culpepper
+#'
+#' @noRd
 rDirichlet <- function(deltas) {
     .Call(`_errum_rDirichlet`, deltas)
 }
