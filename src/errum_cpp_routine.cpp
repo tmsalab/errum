@@ -6,7 +6,7 @@ arma::vec bijectionvector(unsigned int K)
 {
     arma::vec vv(K);
     for (unsigned int k = 0; k < K; k++) {
-        vv(k) = pow(2, K - k - 1);
+        vv(k) = std::pow(2.0, static_cast<double>(K - k) - 1.0);
     }
     return vv;
 }
@@ -16,7 +16,7 @@ arma::vec inv_bijectionvector(unsigned int K, double CL)
 {
     arma::vec alpha(K);
     for (unsigned int k = 0; k < K; k++) {
-        double twopow = pow(2, K - k - 1);
+        double twopow = std::pow(2.0, static_cast<double>(K - k) - 1.0);
         alpha(k) = (twopow <= CL);
         CL = CL - twopow * alpha(k);
     }
@@ -87,7 +87,9 @@ arma::vec rDirichlet(const arma::vec &deltas)
 // [[Rcpp::export]]
 arma::mat random_Q(unsigned int J, unsigned int K)
 {
-    unsigned int nClass = pow(2, K);
+    unsigned int nClass =
+        static_cast<unsigned int>(std::pow(2.0, static_cast<double>(K)));
+
     arma::vec vv = bijectionvector(K);
     arma::vec Q_biject(J);
     Q_biject(arma::span(0, K - 1)) = vv;
@@ -490,7 +492,8 @@ Rcpp::List rRUM_mvnQ_Gibbs(const arma::mat &Y, unsigned int K,
     // Parameter initialization
     unsigned int N = Y.n_rows;
     unsigned int J = Y.n_cols;
-    unsigned int nClass = pow(2, K);
+    unsigned int nClass =
+        static_cast<unsigned int>(std::pow(2.0, static_cast<double>(K)));
 
     // Chain
     unsigned int chain_p_burn = chain_length + burnin;
