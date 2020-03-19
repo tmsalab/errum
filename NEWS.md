@@ -1,4 +1,10 @@
-# errum 0.0.1
+# errum 0.0.3
+
+## Bug fix
+
+- Fix ambiguous overloaded of `pow` on Solaris.
+
+# errum 0.0.2
 
 ## Features
 
