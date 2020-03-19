@@ -1,8 +1,8 @@
 pandoc: 2.7.3
 pkgdown: 1.4.1.9000
-pkgdown_sha: 0bac47a98bc35718079c04bfe299c54d6c6b3605
+pkgdown_sha: 0c219e74e2742765d7759bd9450fa4915857c295
 articles: []
-last_built: 2020-03-16T16:17Z
+last_built: 2020-03-19T21:14Z
 urls:
   reference: https://tmsalab.github.io/reference
   article: https://tmsalab.github.io/articles
