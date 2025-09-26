@@ -1,15 +1,15 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+<!-- README.md is generated from README.qmd. Please edit that file -->
 
 ## errum
 
 <!-- badges: start -->
 
-[![R build
-status](https://github.com/tmsalab/errum/workflows/R-CMD-check/badge.svg)](https://github.com/tmsalab/errum/actions)
-[![Package-License](http://img.shields.io/badge/license-GPL%20\(%3E=2\)-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html)
+[![R-CMD-check](https://github.com/tmsalab/errum/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tmsalab/errum/actions/workflows/R-CMD-check.yaml)
+[![Package-License](http://img.shields.io/badge/license-GPL%20(%3E=2)-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-2.0.html)
 [![CRAN
-status](https://www.r-pkg.org/badges/version/errum)](https://CRAN.R-project.org/package=errum)
+status](https://www.r-pkg.org/badges/version/errum.png)](https://CRAN.R-project.org/package=errum)
 <!-- badges: end -->
 
 Perform a Bayesian estimation of the Exploratory reduced Reparameterized
