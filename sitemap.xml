@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://tmsalab.github.io/index.html</loc>
-  </url>
-  <url>
-    <loc>https://tmsalab.github.io/reference/errum-package.html</loc>
-  </url>
-  <url>
-    <loc>https://tmsalab.github.io/reference/errum.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://tmsalab.github.io/404.html</loc></url>
+<url><loc>https://tmsalab.github.io/LICENSE.html</loc></url>
+<url><loc>https://tmsalab.github.io/authors.html</loc></url>
+<url><loc>https://tmsalab.github.io/index.html</loc></url>
+<url><loc>https://tmsalab.github.io/news/index.html</loc></url>
+<url><loc>https://tmsalab.github.io/reference/errum-package.html</loc></url>
+<url><loc>https://tmsalab.github.io/reference/errum.html</loc></url>
+<url><loc>https://tmsalab.github.io/reference/index.html</loc></url>
 </urlset>
+
