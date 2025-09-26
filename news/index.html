@@ -64,6 +64,17 @@
     </div>
 
     <div class="section level2">
+<h2 class="page-header" data-toc-text="0.0.4" id="errum-004">errum 0.0.4<a class="anchor" aria-label="anchor" href="#errum-004"></a></h2>
+<div class="section level3">
+<h3 id="changes-0-0-4">Changes<a class="anchor" aria-label="anchor" href="#changes-0-0-4"></a></h3>
+<ul><li>Added explicit dependencies on R (&gt;= 4.3.0), Rcpp (&gt;= 1.1.0), and RcppArmadillo (&gt;= 15.0.2-2)</li>
+<li>Removed CXX11 from <code>src/Makevars</code> and <code>src/Makevars.win</code> to avoid potential compilation issues with newer versions of Armadillo through RcppArmadillo.</li>
+<li>Switched README.Rmd to README.qmd to use Quarto for rendering.</li>
+<li>Fixed CITATION file to use <code><a href="https://rdrr.io/r/base/c.html" class="external-link">c()</a></code> instead of <code><a href="https://rdrr.io/r/utils/personList.html" class="external-link">personList()</a></code> and <code><a href="https://rdrr.io/r/utils/bibentry.html" class="external-link">bibentry()</a></code> to avoid CRAN check notes.</li>
+<li>Updated GitHub Action workflows.</li>
+</ul></div>
+</div>
+    <div class="section level2">
 <h2 class="page-header" data-toc-text="0.0.3" id="errum-003">errum 0.0.3<small>2020-03-20</small><a class="anchor" aria-label="anchor" href="#errum-003"></a></h2>
 <div class="section level3">
 <h3 id="bug-fix-0-0-3">Bug fix<a class="anchor" aria-label="anchor" href="#bug-fix-0-0-3"></a></h3>
