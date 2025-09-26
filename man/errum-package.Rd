@@ -3,17 +3,15 @@
 \docType{package}
 \name{errum-package}
 \alias{errum-package}
-\alias{_PACKAGE}
 \title{errum: Exploratory Reduced Reparameterized Unified Model Estimation}
 \description{
-Perform a Bayesian estimation of the exploratory reduced
-    reparameterized unified model (ErRUM) described by Culpepper and Chen (2018)
-    <doi:10.3102/1076998618791306>.
+Perform a Bayesian estimation of the exploratory reduced reparameterized unified model (ErRUM) described by Culpepper and Chen (2018) \doi{10.3102/1076998618791306}.
 }
 \seealso{
 Useful links:
 \itemize{
   \item \url{https://github.com/tmsalab/errum}
+  \item \url{https://tmsalab.github.io/errum/}
   \item Report bugs at \url{https://github.com/tmsalab/errum/issues}
 }
 
