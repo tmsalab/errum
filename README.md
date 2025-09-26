@@ -7,7 +7,7 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/tmsalab/errum/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tmsalab/errum/actions/workflows/R-CMD-check.yaml)
-[![Package-License](http://img.shields.io/badge/license-GPL%20(%3E=2)-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-2.0.html)
+[![Package-License](http://img.shields.io/badge/license-GPL%20(%3E=2)-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/errum.png)](https://CRAN.R-project.org/package=errum)
 <!-- badges: end -->
