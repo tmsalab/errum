@@ -1,21 +1,21 @@
 citHeader("To cite the 'errum' R package and methods paper in publications use:")
 
-citEntry(entry = "Manual",
+bibentry(bibtype = "Manual",
          title        = "{errum: Bayesian Estimation of an Exploratory Reduced Reparameterized Unified Model}",
-         author       = personList(
-                                   as.person("James Joseph Balamuta"),
-                                   as.person("Steven Andrew Culpepper"),
-                                   as.person("Jeffrey A. Douglas")
-                                  ),
+         author       = c(
+                          as.person("James Joseph Balamuta"),
+                          as.person("Steven Andrew Culpepper"),
+                          as.person("Jeffrey A. Douglas")
+                          ),
          year         = 2019,
          textVersion  = paste("Balamuta, J. J., Culpepper, S. A., and Douglas, J. A. (2019).",
                               "errum: Bayesian Estimation of an Exploratory Reduced Reparameterized Unified Model.",
                               "URL https://cran.r-project.org/package=errum.")
 )
 
-citEntry(entry   = "Article",
+bibentry(bibtype   = "Article",
          title   = "{Development and Application of an Exploratory Reduced Reparameterized Unified Model}",
-         author  = personList(
+         author  = c(
                       as.person("Steven Andrew Culpepper"),
                       as.person("Yinghan Chen")
                    ),
