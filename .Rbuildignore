@@ -13,3 +13,4 @@
 ^pkgdown$
 ^src/\.clang-format$
 ^\.github$
+^CRAN-SUBMISSION$
