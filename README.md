@@ -2,7 +2,7 @@
 
 <!-- README.md is generated from README.qmd. Please edit that file -->
 
-## errum
+## errum <a href="https://tmsalab.github.io/errum/"><picture><source media="(prefers-color-scheme: dark)" srcset="man/figures/errum-logo-animated-dark.svg"><img src="man/figures/errum-logo-animated-light.svg" width="150" align="right" alt="A hexagonal logo for errum: a solid punch card whose top edge steps down in four treads labelled π*, r*₁, r*₂ and r*₃, with beside each r* the hole that switches that penalty on, the first still holding an orange hanging chad, and the word errum cut out below."/></picture></a>
 
 <!-- badges: start -->
 
