@@ -20,7 +20,8 @@ errum(
 }
 \arguments{
 \item{y}{Binary responses to assessments in \code{matrix}
-form with dimensions \eqn{N \times J}{N x J}.}
+form with dimensions \eqn{N \times J}{N x J}.
+Missing values are not allowed.}
 
 \item{k}{Number of Attribute Levels as a positive \code{integer}.}
 

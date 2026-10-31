@@ -572,7 +572,7 @@ Rcpp::List rRUM_mvnQ_Gibbs(const arma::mat &Y, unsigned int K,
         w2 = Rcpp::as<double>(step_MVN[0]);
         nu = Rcpp::as<double>(step_MVN[1]);
 
-        if (t > burnin - 1) {
+        if (t >= burnin) {
             tmburn = t - burnin;
             PISTAR.col(tmburn) = pistar;
             RSTAR.slice(tmburn) = rstar;
