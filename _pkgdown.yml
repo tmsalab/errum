@@ -29,3 +29,7 @@ reference:
 template:
   params:
     ganalytics: UA-151562227-1
+  opengraph:
+    image:
+      src: man/figures/errum-logo-static-light.svg
+      alt: The errum hex logo, a punch card that steps down like the rRUM staircase, with an orange chad on the Q entry still being learned.
