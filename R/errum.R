@@ -5,6 +5,7 @@
 #'
 #' @param y            Binary responses to assessments in `matrix`
 #'                     form with dimensions \eqn{N \times J}{N x J}.
+#'                     Missing values are not allowed.
 #' @param k            Number of Attribute Levels as a positive `integer`.
 #' @param burnin       Number of Observations to discard on the chain.
 #' @param chain_length Length of the MCMC chain
@@ -83,6 +84,10 @@ errum = function(y, k = 3,
                  v0 = 4, v1 = 2,
                  cv0 = .1, cv1 = 10,
                  bnu = 16) {
+
+    if (anyNA(y)) {
+        stop("`y` must not contain missing values.", call. = FALSE)
+    }
 
     message("Beginning the estimation procedure... ")
     o = rRUM_mvnQ_Gibbs(y, k,

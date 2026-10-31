@@ -1,6 +1,6 @@
 Package: errum
 Title: Exploratory Reduced Reparameterized Unified Model Estimation
-Version: 0.0.4
+Version: 0.0.4.9000
 Authors@R: c(
     person("James Joseph", "Balamuta", 
            email = "balamut2@illinois.edu", 
@@ -25,9 +25,11 @@ Depends: R (>= 4.3.0)
 Imports: Rcpp (>= 1.1.0)
 LinkingTo: Rcpp, RcppArmadillo (>= 15.0.2-2)
 Suggests: 
-    simcdm
+    simcdm,
+    testthat (>= 3.0.0)
 LazyData: true
 RoxygenNote: 7.3.3
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
 Language: en-US
+Config/testthat/edition: 3

@@ -1,3 +1,17 @@
+# errum (development version)
+
+## Bug fixes
+
+- `errum()` now stores every draw when `burnin = 0`. Previously the
+  comparison `t > burnin - 1` wrapped around on an unsigned integer, so
+  nothing was stored and every returned chain was all zeros.
+- `errum()` now stops with an error when `y` contains missing values.
+  Previously a single `NA` produced an invalid fit without warning.
+
+## Internal
+
+- Added a testthat test suite.
+
 # errum 0.0.4
 
 ## Changes
